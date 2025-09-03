@@ -20,33 +20,17 @@ jobs:
           echo "Before"
           df -h
           
-          sudo rm -rf /usr/share/dotnet
-          echo "dotnet"
-          df -h
-          
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
           echo "$AGENT_TOOLSDIRECTORY"
           df -h
           
           sudo rm -rf /usr/local/lib/android
-          echo "Before"
+          echo "android"
           df -h
           
           sudo rm -rf /opt/ghc
           echo "ghc"
           df -h
           
-          sudo rm -rf /opt/hostedtoolcache/CodeQL
-          echo "CodeQL"
-          df -h
-          
-          sudo docker image prune --all --force
-          echo "image prune"
-          df -h
-          
-          sudo docker builder prune -af
-          echo "builder prune"
-          df -h
-          
           echo "root"
-          df -h /dev/root
+          du -h --max-depth=1 /
